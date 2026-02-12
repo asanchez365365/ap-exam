@@ -2,45 +2,66 @@
 #Playlist Organizer  
 # List of songs, function to filter by genre or mood.
 
-songs = []
-answers = []
+playlist = []
+# this list stores songs as dictionaries (song name +genre/mood)
 
-def choose_song(question):
+def show_playlist(song_list, chosen_category):
 
-    song = input("Do you want to hear a song? ")
-    if song == "no":
-        print("Okay, you're missing out!")
-
-    while song == "yes":
-        print("Amazing, lets listen!")
-    question = input("Do you want to hear a song that is joyful, sadness, nostalgic, or calm? ")
-    joke = choose_song(question)
-
-    if question == "sadness":
-        input("Are you feeling sadness?")
-        input("Heres a sad song for ya!")
-
-    if question == "joyful":
-        input("Are you feeling joyful?")
-        input("Heres a joyful for ya!")
-
-    if question == "nostalgia":
-        input("Are you feeling nostalgia?")
-        input("Heres a nostalgic song for ya!")
-
-    if question == "calm":
-        input("Are you feeling calm?")
-        input("Heres a calm song for ya!")
-
-
-        answers.append(question)
-        return input(" Do you want to listen to another song or are you finished?")
+    found= False # checks and makes sure if a matching song exists
     
-def countdown(sec):
-        import time
-        for i in range(sec, 0, -1):
-            print(i)
-            time.sleep(1)
 
-        countdown(3)
-        print("Playing song now...")
+    for song in song_list: 
+        # this is iteration that goes through each song
+        name = song["name"]
+        category = song["category"]
+
+        if category.lower() == chosen_category.lower():
+            # checking if categroy matches using selection
+            print("Song:", name)
+            print("Genre/Mood", category)
+            print()
+            found=True
+
+    if found == False:
+        print("No songs found")
+        # This is just in case no songs are found
+
+print ("Welcome to your Playlist Organizer!")
+
+while True:
+
+    print()
+    print("1 Add a song")
+    print("2 View songs by genre or mood")
+    print("3 Exit")
+
+    choice= input("Choose option: ")
+
+    #to add a song...
+
+    if choice == "1":
+        song_name = input("Please enter song name :")
+        song_category = input ("Enter genre or mood")
+
+        song_data = {
+            "name": song_name,
+            "category": song_category
+        }
+
+        playlist.append(song_data)
+        print("Song added.")
+
+    #now we shall view the songs
+    elif choice == "2":
+        if len(playlist) == 0:
+            print("Playlist is empty")
+        else:
+            search = input("Enter genre or mood:")
+            show_playlist(playlist, search)
+
+    elif choice == "3":
+        print("Goodbye for now.")
+        break
+
+    else:
+        print("Invalid choice")
