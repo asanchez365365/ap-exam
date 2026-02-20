@@ -6,20 +6,13 @@
 # this is where we're going to store this
 patients = [
     {
-    "Name": "Alex",
-    "Age": 67,
-    "Gender": "Both",
-    "Date of Birth": "6/07/67",
-    "Symptoms": "Pain",
-    "Priority": "low"
-    },
-    {"Name": "Aex",
-    "Age": 67,
-    "Gender": "Both",
-    "Date of Birth": "6/07/67",
-    "Symptoms": "Pain",
-    "Priority": "low"
-    }
+    "Name": None,
+    "Age": None, 
+    "Gender": None,
+    "Date of Birth": None, # we add this bc we cant the prgram to acually have smth to search in the program
+    "Symptoms": None,
+    "Priority": None
+    }   
     ]
 
 
