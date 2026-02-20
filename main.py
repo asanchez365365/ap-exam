@@ -6,8 +6,7 @@
 # this is where we're going to store this
 patients = [
     {
-    "Name": None,
-    "Age": None, 
+    "Full Name": None,
     "Gender": None,
     "Date of Birth": None, # we add this bc we cant the prgram to acually have smth to search in the program
     "Symptoms": None,
@@ -22,7 +21,7 @@ patients = [
 def search_patient(Name):
     
     for patient in patients: # for every dictionary in patients
-        if patient["Name"] == Name: # if the name value in the dictionary is equal to the paramenter "Name"
+        if patient["Full Name"] == Name: # if the name value in the dictionary is equal to the paramenter "Name"
                 print()
                 print("Patient found:")
 
@@ -44,8 +43,7 @@ def search_patient(Name):
 
 def add_patient(): 
     patient = { # our empty list
-        "Name": None,
-        "Age": None, 
+        "Full Name": None,
         "Gender": None,
         "Date of Birth": None,
         "Symptoms": None,
@@ -55,13 +53,13 @@ def add_patient():
     for key in patient: # for every key in our paitent list
         patient[key] = input(key + ": ") # print that and get input
 
-    for dictionaries in patients: # the dictionaries we have in this
-        if patient["Name"] == dictionaries["Name"]: # if the thing we entered is in the databse
+    for dictionaries in patients: # the dictionaries we have in this list "patients"
+        if patient["Full Name"] == dictionaries["Full Name"]: # if the thing we entered is in the databse
             print("Patient already exsists")
         else: #otherwise
             patients.append(patient) # add to database
 
-            print(f"Patient {patient["Name"]}, has been successfully added")
+            print(f"Patient {patient["Full Name"]}, has been successfully added")
             return
 
 
